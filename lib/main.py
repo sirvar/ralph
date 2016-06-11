@@ -1,4 +1,5 @@
 import tweepy
+import random
 
 # Creds details
 # 0 - consumer_key
@@ -21,12 +22,17 @@ class mStreamListener(tweepy.StreamListener):
 	def on_status(self, status):
 		if not self.tweetByMe(status.user.id):
 			api.retweet(status.id)
+			self.reply(status)
 
 	def tweetByMe(self, userId):
 		if (api.me().id == userId):
 			return True
 		return False
 
+	def reply(self, tweet):
+		rand = random.randint(0, len(options))
+		api.update_status(".@" + tweet.user.screen_name + " " + options[rand], tweet.id)
+
 ralphListener = mStreamListener()
 ralphStream = tweepy.Stream(auth = api.auth, listener = ralphListener)
-ralphStream.filter(track = username)
+ralphStream.filter(track = [username])
