@@ -36,7 +36,9 @@ class mStreamListener(tweepy.StreamListener):
 	# Replys to tweet with random option
 	def reply(self, tweet):
 		rand = random.randint(0, len(options))
-		api.update_status(".@" + tweet.user.screen_name + " " + options[rand], tweet.id)
+		text = ".@" + tweet.user.screen_name + " " + options[rand]
+		print(text)
+		api.update_status(text, tweet.id)
 
 # Init StreamListener
 ralphListener = mStreamListener()
