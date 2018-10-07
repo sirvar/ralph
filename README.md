@@ -3,8 +3,6 @@ Meet Ralph, the magic 8 ball bot on Twitter!
 
 Ralph is a Twitter bot who works like a magic 8 ball. You tweet at him to ask him a yes or no question and he will reply with a magic answer.
 
-Try it out! [@ralph8ball](https://twitter.com/ralph8ball)
-
 ## Installation
 Firstly, make sure you have tweepy
 
